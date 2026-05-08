@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LPU University</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Poppins',sans-serif;
+            background:#f5f5f5;
+            color:#333;
+            line-height:1.6;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        /* ===== HEADER ===== */
+        header{
+            background:#111;
+            color:white;
+            padding:1rem 0;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            border-bottom:4px solid #f4c400;
+        }
+
+        .header-container{
+            max-width:1200px;
+            margin:auto;
+            padding:0 20px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:2rem;
+            font-weight:700;
+            color:#f4c400;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:2rem;
+        }
+
+        nav a{
+            text-decoration:none;
+            color:white;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:#f4c400;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero{
+            background:
+            linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+            url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600');
+            background-size:cover;
+            background-position:center;
+            height:90vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            color:white;
+            padding:2rem;
+        }
+
+        .hero-content{
+            max-width:800px;
+        }
+
+        .hero h1{
+            font-size:4rem;
+            margin-bottom:1rem;
+        }
+
+        .hero p{
+            font-size:1.3rem;
+            margin-bottom:2rem;
+        }
+
+        .hero-btn{
+            background:#f4c400;
+            color:black;
+            border:none;
+            padding:1rem 2.5rem;
+            border-radius:50px;
+            font-size:1rem;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .hero-btn:hover{
+            background:white;
+            transform:translateY(-5px);
+        }
+
+        /* ===== SECTION COMMON ===== */
+        section{
+            padding:5rem 20px;
+        }
+
+        .container{
+            max-width:1200px;
+            margin:auto;
+        }
+
+        .section-title{
+            text-align:center;
+            margin-bottom:3rem;
+        }
+
+        .section-title h2{
+            font-size:2.5rem;
+            color:#111;
+            margin-bottom:1rem;
+        }
+
+        .section-title p{
+            color:#666;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:2rem;
+            margin-top:-80px;
+            position:relative;
+            z-index:10;
+        }
+
+        .stat-box{
+            background:white;
+            padding:2rem;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .stat-box:hover{
+            transform:translateY(-10px);
+        }
+
+        .stat-box h3{
+            font-size:2.5rem;
+            color:#f4c400;
+        }
+
+        .stat-box p{
+            margin-top:0.5rem;
+            font-weight:500;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-content{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:3rem;
+            align-items:center;
+        }
+
+        .about-content img{
+            width:100%;
+            border-radius:15px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .about-text h3{
+            font-size:2rem;
+            margin-bottom:1rem;
+            color:#111;
+        }
+
+        .about-text p{
+            margin-bottom:1rem;
+            color:#555;
+        }
+
+        /* ===== COURSES ===== */
+        .courses-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:2rem;
+        }
+
+        .course-card{
+            background:white;
+            padding:2rem;
+            border-radius:15px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+            transition:0.4s;
+            border-top:5px solid #f4c400;
+        }
+
+        .course-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .course-card h3{
+            margin-bottom:1rem;
+            color:#111;
+        }
+
+        .course-card p{
+            color:#555;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact{
+            background:#111;
+            color:white;
+        }
+
+        .contact-form{
+            max-width:700px;
+            margin:auto;
+        }
+
+        .form-group{
+            margin-bottom:1.5rem;
+        }
+
+        input,
+        textarea{
+            width:100%;
+            padding:1rem;
+            border:none;
+            border-radius:10px;
+            font-family:'Poppins',sans-serif;
+        }
+
+        textarea{
+            resize:none;
+            height:150px;
+        }
+
+        .submit-btn{
+            width:100%;
+            padding:1rem;
+            background:#f4c400;
+            border:none;
+            border-radius:50px;
+            font-size:1rem;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .submit-btn:hover{
+            background:white;
+        }
+
+        /* ===== FOOTER ===== */
+        footer{
+            background:black;
+            color:white;
+            text-align:center;
+            padding:2rem;
+            border-top:4px solid #f4c400;
+        }
+
+        /* ===== MOBILE ===== */
+        @media(max-width:768px){
+
+            .hero h1{
+                font-size:2.5rem;
+            }
+
+            .hero p{
+                font-size:1rem;
+            }
+
+            nav ul{
+                gap:1rem;
+            }
+
+            .about-content{
+                grid-template-columns:1fr;
+            }
+
+            .section-title h2{
+                font-size:2rem;
+            }
+        }
+
+        @media(max-width:500px){
+
+            .header-container{
+                flex-direction:column;
+                gap:1rem;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero h1{
+                font-size:2rem;
+            }
+
+            .hero-btn{
+                padding:0.9rem 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="header-container">
+            <div class="logo">LPU University</div>
+
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#courses">Programs</a></li>
+                    <li><a href="#contact">Admissions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to LPU University</h1>
+            <p>
+                India's Leading Private University for Innovation, Excellence & Global Education
+            </p>
+
+            <button class="hero-btn" onclick="showMessage()">
+                Explore Campus
+            </button>
+
+            <p id="welcomeMessage" style="margin-top:20px;font-weight:600;"></p>
+        </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section>
+        <div class="container">
+            <div class="stats">
+
+                <div class="stat-box">
+                    <h3>30K+</h3>
+                    <p>Students</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>200+</h3>
+                    <p>Programs</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>500+</h3>
+                    <p>Recruiters</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>50+</h3>
+                    <p>Countries</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>About LPU</h2>
+                <p>Transforming Education Through Innovation & Excellence</p>
+            </div>
+
+            <div class="about-content">
+
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200" alt="University">
+
+                <div class="about-text">
+                    <h3>Leading University in India</h3>
+
+                    <p>
+                        Lovely Professional University (LPU) is one of India's largest and most prestigious universities, offering world-class education and modern infrastructure.
+                    </p>
+
+                    <p>
+                        Our university focuses on academic excellence, research innovation, global exposure, and career development for students.
+                    </p>
+
+                    <p>
+                        With state-of-the-art laboratories, modern classrooms, international collaborations, and strong placement support, LPU empowers students for future success.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== COURSES ===== -->
+    <section id="courses" style="background:#fafafa;">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Our Programs</h2>
+                <p>Industry-focused courses designed for future careers</p>
+            </div>
+
+            <div class="courses-grid">
+
+                <div class="course-card">
+                    <h3>💻 Computer Science</h3>
+                    <p>
+                        Learn programming, AI, web development, cybersecurity, and modern software technologies.
+                    </p>
+                </div>
+
+                <div class="course-card">
+                    <h3>🏗 Engineering</h3>
+                    <p>
+                        Advanced engineering programs with practical learning and industrial exposure.
+                    </p>
+                </div>
+
+                <div class="course-card">
+                    <h3>📈 Business Management</h3>
+                    <p>
+                        Develop leadership, entrepreneurship, finance, and management skills.
+                    </p>
+                </div>
+
+                <div class="course-card">
+                    <h3>⚕ Medical Sciences</h3>
+                    <p>
+                        Modern healthcare education with research-oriented learning methodologies.
+                    </p>
+                </div>
+
+                <div class="course-card">
+                    <h3>🎨 Design & Arts</h3>
+                    <p>
+                        Creative programs focused on design thinking, visual arts, and innovation.
+                    </p>
+                </div>
+
+                <div class="course-card">
+                    <h3>🌍 Humanities</h3>
+                    <p>
+                        Study society, culture, psychology, literature, and communication.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2 style="color:white;">Admissions Open 2026</h2>
+                <p style="color:#ccc;">
+                    Apply now and begin your journey with LPU University
+                </p>
+            </div>
+
+            <form class="contact-form" onsubmit="submitForm(event)">
+
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Enter Your Name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Enter Your Email" required>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message" placeholder="Enter Your Message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Apply Now
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>
+            © 2026 Lovely Professional University | All Rights Reserved
+        </p>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+
+        // Welcome Message
+        function showMessage(){
+
+            document.getElementById("welcomeMessage").innerHTML =
+            "🎉 Welcome to LPU University! Start your journey toward success today.";
+        }
+
+        // Form Submission
+        function submitForm(event){
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+
+            alert("Thank you " + name + "! Your application has been submitted successfully.");
+
+            event.target.reset();
+        }
+
+    </script>
+
+</body>
+</html>
